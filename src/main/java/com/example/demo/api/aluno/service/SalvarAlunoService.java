@@ -12,7 +12,7 @@ import java.util.function.Function;
 
 @Service
 @RequiredArgsConstructor
-public class SalvarService implements Function<AlunoInputDTO, AlunoOutputDTO> {
+public class SalvarAlunoService implements Function<AlunoInputDTO, AlunoOutputDTO> {
 
     private final AlunoRepository repository;
 

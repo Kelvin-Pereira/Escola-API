@@ -1,5 +1,6 @@
 package com.example.demo.api.aluno.domain.entity;
 
+import com.example.demo.api.turma.domain.entity.Turma;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -16,5 +17,9 @@ public class Aluno {
 
     @Column(name = "nome", nullable = false)
     private String nome;
+
+    @ManyToOne
+    @JoinColumn(name = "turmaId")
+    private Turma turma;
 
 }

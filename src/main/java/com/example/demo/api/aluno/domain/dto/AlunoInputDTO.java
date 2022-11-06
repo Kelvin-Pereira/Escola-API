@@ -8,6 +8,6 @@ import lombok.Setter;
 public class AlunoInputDTO {
 
     private String nome;
-    private Long idCurso;
+    private Long turmaId;
 
 }

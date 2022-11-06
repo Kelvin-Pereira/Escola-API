@@ -9,5 +9,6 @@ public class AlunoOutputDTO {
 
     private Long id;
     private String nome;
+    private String turmaSigla;
 
 }
