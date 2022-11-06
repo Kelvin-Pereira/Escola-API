@@ -1,5 +1,6 @@
 package com.example.demo.api.aluno.service;
 
+import com.example.demo.api.aluno.domain.AlunoMapper;
 import com.example.demo.api.aluno.domain.dto.AlunoInputDTO;
 import com.example.demo.api.aluno.domain.dto.AlunoOutputDTO;
 import com.example.demo.api.aluno.domain.entity.Aluno;
@@ -17,8 +18,8 @@ public class SalvarService implements Function<AlunoInputDTO, AlunoOutputDTO> {
 
     @Override
     public AlunoOutputDTO apply(AlunoInputDTO alunoInputDTO) {
-         repository.save(new Aluno());
-         return null;
+        Aluno aluno = AlunoMapper.INSTANCE.dtoToEntity(alunoInputDTO);
+        return AlunoMapper.INSTANCE.entityToDto(repository.save(aluno));
     }
 
 }
