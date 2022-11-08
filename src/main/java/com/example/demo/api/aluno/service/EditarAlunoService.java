@@ -19,6 +19,6 @@ public class EditarAlunoService implements Function<AlunoInputDTO, AlunoOutputDT
     @Override
     public AlunoOutputDTO apply(AlunoInputDTO alunoInputDTO) {
         Aluno aluno = AlunoMapper.INSTANCE.dtoToEntity(alunoInputDTO);
-      return AlunoMapper.INSTANCE.entityToDto(repository.save(aluno));
+        return AlunoMapper.INSTANCE.entityToDto(repository.save(aluno));
     }
 }

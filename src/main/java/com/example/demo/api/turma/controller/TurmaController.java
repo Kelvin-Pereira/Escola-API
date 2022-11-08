@@ -6,7 +6,10 @@ import com.example.demo.api.turma.service.SalvarTurmaService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequiredArgsConstructor
@@ -16,7 +19,7 @@ public class TurmaController {
     private final SalvarTurmaService salvarTurmaService;
 
     @PostMapping
-    public ResponseEntity<TurmaOutputDTO> salvar(@RequestBody @Validated TurmaInputDTO turmaInputDTO){
+    public ResponseEntity<TurmaOutputDTO> salvar(@RequestBody @Validated TurmaInputDTO turmaInputDTO) {
         return ResponseEntity.ok(salvarTurmaService.apply(turmaInputDTO));
     }
 
