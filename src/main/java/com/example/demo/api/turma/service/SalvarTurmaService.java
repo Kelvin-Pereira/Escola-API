@@ -19,4 +19,5 @@ public class SalvarTurmaService implements Function<TurmaInputDTO, TurmaOutputDT
         Turma turma = TurmaMapper.INSTANCE.dtoToEntity(turmaInputDTO);
         return TurmaMapper.INSTANCE.entityToDto(repository.save(turma));
     }
+
 }
