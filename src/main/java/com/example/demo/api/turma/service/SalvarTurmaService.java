@@ -13,9 +13,7 @@ import java.util.function.Function;
 @Service
 @RequiredArgsConstructor
 public class SalvarTurmaService implements Function<TurmaInputDTO, TurmaOutputDTO> {
-
     private final TurmaRepository repository;
-
     @Override
     public TurmaOutputDTO apply(TurmaInputDTO turmaInputDTO) {
         Turma turma = TurmaMapper.INSTANCE.dtoToEntity(turmaInputDTO);
