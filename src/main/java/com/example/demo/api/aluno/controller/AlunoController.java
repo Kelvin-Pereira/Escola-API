@@ -22,7 +22,7 @@ public class AlunoController {
     private final SearchAlunoService searchAlunoService;
 
     @GetMapping("/{id:[0-9]*}")
-    private AlunoOutputDTO buscarPorId(@PathVariable("id") Long id) {
+    public AlunoOutputDTO buscarPorId(@PathVariable("id") Long id) {
         return buscarAlunoService.apply(id);
     }
 
