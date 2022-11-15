@@ -18,17 +18,18 @@ public class ThymeleafService {
     private final SpringTemplateEngine templateEngine;
 
     public byte[] gerarPdf(String template, Context context) {
+        String html = templateEngine.process(template, context);
         try (ByteArrayOutputStream outputStream = new ByteArrayOutputStream()) {
-            String html = templateEngine.process(template, context);
 
-            ITextRenderer renderer = new ITextRenderer(); // new ITextRenderer(20f * 4f / 3f, 20);
+            ITextRenderer renderer = new ITextRenderer();
             renderer.setDocumentFromString(html, new ClassPathResource("/").getURL().toExternalForm());
             renderer.layout();
             renderer.createPDF(outputStream);
 
             return outputStream.toByteArray();
         } catch (DocumentException | IOException e) {
-            throw new NegocioException("thymeleaf.erro.gerar.pdf", e);
+            e.printStackTrace();
+            throw new NegocioException("thymeleaf.erro.gerar.pdf");
         }
     }
 }
