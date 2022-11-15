@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.function.Function;
-import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -19,7 +18,7 @@ public class SearchAlunoService implements Function<AlunoFiltroDTO, List<AlunoOu
 
     @Override
     public List<AlunoOutputDTO> apply(AlunoFiltroDTO filtro) {
-        return repository.searchAluno(filtro).stream().map(AlunoMapper.INSTANCE::entityToDto).collect(Collectors.toList());
+        return repository.searchAluno(filtro).stream().map(AlunoMapper.INSTANCE::entityToDto).toList();
     }
 
 }

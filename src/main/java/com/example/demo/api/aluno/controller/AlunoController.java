@@ -7,6 +7,7 @@ import com.example.demo.api.aluno.service.BuscarAlunoService;
 import com.example.demo.api.aluno.service.SalvarAlunoService;
 import com.example.demo.api.aluno.service.SearchAlunoService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,18 +23,18 @@ public class AlunoController {
     private final SearchAlunoService searchAlunoService;
 
     @GetMapping("/{id:[0-9]*}")
-    public AlunoOutputDTO buscarPorId(@PathVariable("id") Long id) {
-        return buscarAlunoService.apply(id);
+    public ResponseEntity<AlunoOutputDTO>  buscarPorId(@PathVariable("id") Long id) {
+        return ResponseEntity.ok(buscarAlunoService.apply(id));
     }
 
     @GetMapping("/search")
-    public List<AlunoOutputDTO> searchByNome(@ModelAttribute @Validated AlunoFiltroDTO alunoFiltroDTO) {
-        return searchAlunoService.apply(alunoFiltroDTO);
+    public ResponseEntity<List<AlunoOutputDTO>> searchByNome(@ModelAttribute @Validated AlunoFiltroDTO alunoFiltroDTO) {
+        return ResponseEntity.ok(searchAlunoService.apply(alunoFiltroDTO));
     }
 
     @PostMapping
-    public AlunoOutputDTO savar(@RequestBody @Validated AlunoInputDTO alunoInputDTO) {
-        return salvarAlunoService.apply(alunoInputDTO);
+    public ResponseEntity<AlunoOutputDTO> salvar(@RequestBody @Validated AlunoInputDTO alunoInputDTO) {
+        return ResponseEntity.ok(salvarAlunoService.apply(alunoInputDTO));
     }
 
 }
