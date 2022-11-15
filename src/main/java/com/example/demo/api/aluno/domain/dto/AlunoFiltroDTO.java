@@ -4,14 +4,16 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Getter
 @Setter
-public class AlunoInputDTO {
+public class AlunoFiltroDTO {
 
     @NotNull(message = "Nome é obrigatório")
+    @Size(min = 3, message = "mínimo 3 caracteres")
     private String nome;
-    @NotNull(message = "Id da tarma é obrigatório")
-    private Long turmaId;
+
+    private Long idTurma;
 
 }

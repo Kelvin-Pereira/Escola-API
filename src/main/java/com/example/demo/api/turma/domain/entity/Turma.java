@@ -20,7 +20,7 @@ public class Turma {
     private String sigla;
 
     @OneToMany
-    @JoinColumn(name = "turmaId")
+    @JoinColumn(name = "turma_Id")
     private List<Aluno> alunos;
 
 }
